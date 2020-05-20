@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ProyectoDawiiiApplication {
 
 	public static void main(String[] args) {
+		//db
 		SpringApplication.run(ProyectoDawiiiApplication.class, args);
 	}
 
