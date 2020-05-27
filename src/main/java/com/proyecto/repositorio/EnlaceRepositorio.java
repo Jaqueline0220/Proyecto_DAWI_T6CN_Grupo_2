@@ -1,5 +1,5 @@
 package com.proyecto.repositorio;
 
-public class EnlaceRepositorio {
+public interface EnlaceRepositorio {
 
 }
