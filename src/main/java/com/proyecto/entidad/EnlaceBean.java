@@ -13,15 +13,16 @@ public class EnlaceBean {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="idenlace")
-	private String idEnlace;
-	private String  descripcion;
-	private String  ruta;
-	public String getIdEnlace() {
+	private int idEnlace;
+	public int getIdEnlace() {
 		return idEnlace;
 	}
-	public void setIdEnlace(String idEnlace) {
+	public void setIdEnlace(int idEnlace) {
 		this.idEnlace = idEnlace;
 	}
+	private String  descripcion;
+	private String  ruta;
+	
 	public String getDescripcion() {
 		return descripcion;
 	}

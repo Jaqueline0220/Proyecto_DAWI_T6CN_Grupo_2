@@ -1,8 +1,7 @@
-package com.proyecto.repositorio;
-
+package com.proyecto.servicio;
 import java.util.List;
 import com.proyecto.entidad.EnlaceBean;
 
-public interface EnlaceRepositorio {
+public interface EnlaceService {
 	public abstract List<EnlaceBean> listaEnlace(int IdUsuario);
 }
