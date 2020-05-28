@@ -56,16 +56,16 @@
   <div class="login_page">
   <div class="login_content">
   <div class="panel-heading border login_heading">INICIAR SESSION</div>	
- <form id="id_form"   action="ProcesarLogin" method="post" name="form1"  role="form" class="form-horizontal" >
+ <form id="id_form"   action="login" method="post" name="form1"  role="form" class="form-horizontal" >
  
 				    <div class="form-group">
-        
+     
         <div class="col-sm-10">
               <span>
-				<c:if test="${requestScope.MENSAJE != null}">
+				<c:if test="${requestScope.MENSAJES != null }">
                		<div class="alert alert-danger fade in" id="success-alert">
 				        <a href="#" class="close" data-dismiss="alert">&times;</a>
-				        <strong>${requestScope.MENSAJE}</strong>
+				        <strong>${requestScope.MENSAJES}</strong>
 				    </div>
 				    </c:if></span>
         </div>
@@ -124,7 +124,6 @@ $("#success-alert").fadeTo(1000, 500).slideUp(500, function(){
 
 
 <script type="text/javascript">
-
 
 function enviar(){
     document.form1.registrar.disabled = true;

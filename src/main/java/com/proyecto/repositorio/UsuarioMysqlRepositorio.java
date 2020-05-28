@@ -16,11 +16,11 @@ public class UsuarioMysqlRepositorio implements UsuarioRepositorio{
     
 	@Override
 	public UsuarioBean ValidarUsuario(UsuarioBean bean) throws Exception {
-		String sql = "select * from usuario where correo='" + bean.getCorreo() + "' and password='" + bean.getPassword()
-	    + "'";
-	    List<UsuarioBean> users = jdbcTemplate.query(sql, new UsuarioMapper());
-	   
-	    return users.size() > 0 ? users.get(0) : null;
+	
+			String sql = "call usp_login('"+bean.getCorreo()+"','"+bean.getPassword()+"')";
+			
+				List<UsuarioBean> users = jdbcTemplate.query(sql, new UsuarioMapper());
+				return users.size() > 0 ? users.get(0) : null;
 	    
 	}
 	class UsuarioMapper implements RowMapper<UsuarioBean> {
