@@ -56,16 +56,16 @@
   <div class="login_page">
   <div class="login_content">
   <div class="panel-heading border login_heading">INICIAR SESSION</div>	
- <form id="id_form"  action="login" method="post" name="form1"  role="form" class="form-horizontal" >
+ <form id="id_form"   action="ProcesarLogin" method="post" name="form1"  role="form" class="form-horizontal" >
  
 				    <div class="form-group">
         
         <div class="col-sm-10">
               <span>
-				<c:if test="${requestScope.mensaje != null}">
+				<c:if test="${requestScope.MENSAJE != null}">
                		<div class="alert alert-danger fade in" id="success-alert">
 				        <a href="#" class="close" data-dismiss="alert">&times;</a>
-				        <strong>${requestScope.mensaje}</strong>
+				        <strong>${requestScope.MENSAJE}</strong>
 				    </div>
 				    </c:if></span>
         </div>
@@ -73,13 +73,13 @@
       <div class="form-group">
         
         <div class="col-sm-10">
-          <input type="text" placeholder="Email" id="inputEmail3" class="form-control" name="loginuser">
+          <input type="text" placeholder="Email" id="inputEmail3" class="form-control" name="correo">
         </div>
       </div>
       <div class="form-group">
         
         <div class="col-sm-10">
-          <input type="password" placeholder="Password" id="inputPassword3" class="form-control" name="loginpassword" >
+          <input type="password" placeholder="Password" id="inputPassword3" class="form-control" name="password"  >
         </div>
       </div>
       <div class="form-group">

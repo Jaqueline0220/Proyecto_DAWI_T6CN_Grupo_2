@@ -6,7 +6,7 @@ public interface UsuarioServicio {
 	
 	public abstract UsuarioBean ActualizaUsuario(UsuarioBean obj) throws Exception;
 	public abstract UsuarioBean InsertarUsuario(UsuarioBean obj) throws Exception;
-	public UsuarioBean  login(UsuarioBean bean) throws Exception;
+	public UsuarioBean  ValidarUsuario(UsuarioBean bean) throws Exception;
 	
 
 }

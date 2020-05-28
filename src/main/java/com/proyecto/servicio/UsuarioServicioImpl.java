@@ -1,7 +1,5 @@
 package com.proyecto.servicio;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.proyecto.repositorio.UsuarioRepositorio;
@@ -15,19 +13,21 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 @Override
 public UsuarioBean ActualizaUsuario(UsuarioBean obj) throws Exception {
 	// TODO Auto-generated method stub
-	return service.save(obj);
+	return null ;
 }
 
 @Override
 public UsuarioBean InsertarUsuario(UsuarioBean obj) throws Exception {
 	// TODO Auto-generated method stub
-	return service.save(obj);
+	return null;
 }
 
 @Override
-public UsuarioBean login(UsuarioBean bean) throws Exception {
-	return service.save(bean);
+public UsuarioBean ValidarUsuario(UsuarioBean bean) throws Exception {
+	return service.ValidarUsuario(bean);
 }
+
+
 
 
 }
