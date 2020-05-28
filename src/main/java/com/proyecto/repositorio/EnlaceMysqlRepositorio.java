@@ -19,7 +19,7 @@ public class EnlaceMysqlRepositorio implements EnlaceRepositorio {
 		@Override
 		public List<EnlaceBean> listaEnlace(int IdUsuario) {
 			
-			List<EnlaceBean> enlace = jdbcTemplate.query(
+	       List<EnlaceBean> enlace = jdbcTemplate.query(
 				    "SELECT DISTINCT	r.idEnlace,	r.descripcion,	r.ruta " + 
 				    "	FROM ENLACE r, ROL_ENLACE p, ROL t,USUARIO_ROL q" + 
 				    "    WHERE r.idEnlace = p.idEnlace AND	p.idRol = t.idRol AND" + 
