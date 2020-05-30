@@ -25,43 +25,48 @@ public class LogInControlador {
 
 
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public String regLogin(UsuarioBean bean, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception{
-		
-	System.out.println("correo"+bean.getCorreo());
-	System.out.println("pass"+bean.getPassword());
+	public String regLogin(UsuarioBean bean, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception{	
 	boolean emailCorrecto;
 	boolean contraCorrecto;
+	
 	  if(bean.getPassword()=="" && bean.getCorreo()==""){
-		  request.setAttribute("MENSAJES", "Ingrese Usuario y Contraseña");
+		  request.setAttribute("MENSAJES", "Ingrese Email y Contraseña");
 	  }else 
 	  if(bean.getPassword()=="") {
 		 request.setAttribute("MENSAJES", "Ingrese Contraseña");
 	  }else
 	  if (bean.getCorreo()=="") {
-		  request.setAttribute("MENSAJES", "Ingrese usuario");
+		  request.setAttribute("MENSAJES", "Ingrese Email");
 		 
       }else {	 
     	  
     	    emailCorrecto=bean.getCorreo().matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$");
     	    contraCorrecto=bean.getPassword().matches("[a-z]{3,10}");
+    	    
     	    if(!emailCorrecto) {
     	    	request.setAttribute("MENSAJES", "Formato inadecuado de email");
     	    
     	    }else
     	    if(!contraCorrecto) {
-    	    	request.setAttribute("MENSAJES", "Formato inadecuado de contra");
+    	    	request.setAttribute("MENSAJES", "Formato inadecuado de contraseña");
     	    
     	    }else
     	    if(contraCorrecto && emailCorrecto) {
-    	    	UsuarioBean aux = userService.ValidarUsuario(bean);
-    			if(aux == null) {	
-    				request.setAttribute("MENSAJES", "Usuario no encontrado");			
-    			}
-    			else {
+    	    	UsuarioBean isExiste = null;
+    	    	isExiste = userService.ValidarUsuarioExiste(bean.getCorreo());
+    	    	System.out.println(isExiste);
+    	    	if(isExiste != null) {
+    	    	  UsuarioBean aux = userService.ValidarUsuario(bean);
+    			  if(aux == null) {	
+    				request.setAttribute("MENSAJES", "Contraseña incorrecta");			
+    			  }else {
     				session=request.getSession();
     				session.setAttribute("objUsuario", aux);			
     				return "Index";
-    			}		
+    			   }	
+    	        }else {
+    	        	request.setAttribute("MENSAJES", "Usuario no encontrado");	
+    	        }
     	    }
 	   }
 	return "login";

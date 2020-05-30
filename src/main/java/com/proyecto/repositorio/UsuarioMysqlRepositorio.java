@@ -23,6 +23,13 @@ public class UsuarioMysqlRepositorio implements UsuarioRepositorio{
 				return users.size() > 0 ? users.get(0) : null;
 	    
 	}
+	@Override
+	public UsuarioBean ValidarUsuarioExiste(String correo) throws Exception {
+		String sql = "call usp_loginISexiste('"+correo+"')";
+		List<UsuarioBean> users = jdbcTemplate.query(sql, new UsuarioMapper());
+		return users.size() > 0 ? users.get(0) : null;
+		
+	}
 	class UsuarioMapper implements RowMapper<UsuarioBean> {
 		  public UsuarioBean mapRow(ResultSet rs, int arg1) throws SQLException {
 			  UsuarioBean user = new UsuarioBean();
@@ -37,5 +44,6 @@ public class UsuarioMysqlRepositorio implements UsuarioRepositorio{
 		    return user;
 		  }
 	}
+	
 
 }

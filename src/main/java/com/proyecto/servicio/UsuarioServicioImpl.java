@@ -27,6 +27,12 @@ public UsuarioBean ValidarUsuario(UsuarioBean bean) throws Exception {
 	return service.ValidarUsuario(bean);
 }
 
+@Override
+public UsuarioBean ValidarUsuarioExiste(String correo) throws Exception {
+	// TODO Auto-generated method stub
+	return service.ValidarUsuarioExiste(correo);
+}
+
 
 
 
