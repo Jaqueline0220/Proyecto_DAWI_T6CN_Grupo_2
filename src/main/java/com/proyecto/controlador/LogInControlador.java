@@ -1,5 +1,7 @@
 package com.proyecto.controlador;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,14 +11,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import com.proyecto.entidad.EnlaceBean;
 import com.proyecto.entidad.UsuarioBean;
+import com.proyecto.servicio.EnlaceService;
 import com.proyecto.servicio.UsuarioServicio;
 
 @Controller
 public class LogInControlador {
 	@Autowired
 	private UsuarioServicio userService;
+	@Autowired
+	private EnlaceService enlaceService;
 	
 	@RequestMapping("/verlogin")
 	public String ver() {
@@ -61,7 +66,11 @@ public class LogInControlador {
     				request.setAttribute("MENSAJES", "Contraseña incorrecta");			
     			  }else {
     				session=request.getSession();
-    				session.setAttribute("objUsuario", aux);			
+    				session.setAttribute("objUsuario", aux);	
+    				//se obtiene los menus del usuario logeado y se guarda en la memoria sesion
+    				List<EnlaceBean> menus = enlaceService.listaEnlace(aux.getIdUsuario());
+    				session.setAttribute("objMenus", menus);
+
     				return "Index";
     			   }	
     	        }else {

@@ -5,9 +5,9 @@
     <div class="container">
       <div class="row">
       <div class="col-sm-12">
-        <div class="span12" style="float: left;"> &copy; <a href="#">Sistema de Administracion daniela</a>. </div>
+        <div class="span12" style="float: left;"> &copy; <a href="#">Sistema de Administracion wilmer</a>. </div>
         <!-- /span12 --> 
-         <div class="" style="float: right;"> 2019</div>
+         <div class="" style="float: right;"> 2020</div>
          </div>
       </div>
       <!-- /row --> 
