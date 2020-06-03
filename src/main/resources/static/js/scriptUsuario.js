@@ -42,7 +42,51 @@ $(document).ready(function () {
             });
         });
 
+        $(function () {
+            $("#btn-Home").on("click", function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $.get(url).done(function (result) {
+                    $("body").html(result);
+                    $('#sidebar').addClass('active');
+                  
+                });
+              
+        history.pushState(null, "",url);
+                
+            });
+        });
         
+        
+        $(function () {
+            $("#btnTriaje").on("click", function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $.get(url).done(function (result) {
+                    $("body").html(result);
+                    $('#sidebar').addClass('active');
+                  
+                });
+              
+        history.pushState(null, "",url);
+                
+            });
+        });
+
+        $(function () {
+            $("#btnUsuario").on("click", function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $.get(url).done(function (result) {
+                    $("body").html(result);
+                    $('#sidebar').addClass('active');
+                  
+                });
+              
+        history.pushState(null, "",url);
+                
+            });
+        });
         
         });
 

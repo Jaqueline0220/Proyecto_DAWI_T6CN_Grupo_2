@@ -50,7 +50,7 @@
 		</div>
 		<ul class="list-unstyled components" style="height: 65vh;">
 			<li class="active">
-				<a id="a-btnHome" href="/Home/menu" class="link-layout">
+				<a id="btn-Home" href="/verIndex" class="link-layout">
 					<span class="v-icon" style="      margin-right: 30px;
 ">
 						<img src="img/iconos/layout/casa.png" style= "height:20px;width:20px">
@@ -64,7 +64,7 @@
 				</li>
 				<c:forEach var="x" items="${sessionScope.objMenus}">
 					<li class="">
-						<a class="link-layout"  href="${x.ruta}">
+						<a id="btn${x.descripcion}" class="link-layout"  href="${x.ruta}">
 							<span class="v-icon" style="      margin-right: 30px;
 ">
 								<img src="img/iconos/layout/${x.icono}.png" style= "height:20px;width:20px">
@@ -105,7 +105,7 @@
 					<li>
 					${requestScope.objUsuario.idUsuario}
 						<c:if test="${requestScope.objUsuario.idUsuario !=null }">
-							<a href="/Acceso/Close" class="article">Close</a>
+							<a href="/logout" class="article">Close</a>
 						</c:if>
 						<c:if test="${requestScope.objUsuario.idUsuario ==null }">
 							<a id="btn-login" href="/verLogin" class="article">Login</a>
@@ -148,7 +148,7 @@
 											
 										</li>
 										<li>
-											<a style="background-color:transparent !important" class="cart-icon cart-btn" onclik="" href="/Acceso/Close">
+											<a style="background-color:transparent !important" class="cart-icon cart-btn" onclik="" href="/logout">
 												<span class="hidden-mobile">
 													<svg
 														xmlns="http://www.w3.org/2000/svg" height="14pt" viewBox="0 0 512 512" width="14pt">
@@ -190,7 +190,7 @@
 				 <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="well well-sm" style="background-color:white !important;border: 1px solid #fff;">
-                <form action="registroUsuario" method="post">
+                <form action="registroTriaje" method="post">
                 <input type="hidden" class="form-control" id="Nombre_id" name="idUsuario" value="1">
 <div class="form-group"> <!-- Full Name -->
         <h2>Registro de usuario</h2>
@@ -207,6 +207,46 @@
 				    <c:remove var="MENSAJES" scope = "request" />
 	</div> 
     <div class="form-group"> 
+        <label for="Nacionalidad_id" class="control-label">Nacionalidad</label>
+        <input type="text" class="form-control" id="Nacionalidad_id" name="Nacionalidad" placeholder="Nacionalidad">
+    </div> 
+    <div class="form-group"> 
+    <select name="Departamento" class="jsx-1925758298"><option value="default"  class="control-label" >Departamento
+    </option><option value="10000" class="jsx-1925758298">AMAZONAS</option>
+    <option value="20000" class="jsx-1925758298">ANCASH</option>
+    <option value="30000" class="jsx-1925758298">APURIMAC</option>
+    <option value="40000" class="jsx-1925758298">AREQUIPA</option>
+    <option value="50000" class="jsx-1925758298">AYACUCHO</option>
+    <option value="60000" class="jsx-1925758298">CAJAMARCA</option>
+    <option value="80000" class="jsx-1925758298">CUZCO</option>
+    <option value="90000" class="jsx-1925758298">HUANCAVELICA</option>
+    <option value="100000" class="jsx-1925758298">HUANUCO</option>
+    <option value="110000" class="jsx-1925758298">ICA</option>
+    <option value="120000" class="jsx-1925758298">JUNIN</option>
+    <option value="130000" class="jsx-1925758298">LA LIBERTAD</option>
+    <option value="140000" class="jsx-1925758298">LAMBAYEQUE</option>
+    <option value="150000" class="jsx-1925758298">LIMA</option>
+    <option value="160000" class="jsx-1925758298">LORETO</option>
+    <option value="180000" class="jsx-1925758298">MOQUEGUA</option>
+    <option value="190000" class="jsx-1925758298">PASCO</option>
+    <option value="200000" class="jsx-1925758298">PIURA</option>
+    <option value="210000" class="jsx-1925758298">PUNO</option>
+    <option value="220000" class="jsx-1925758298">SAN MARTIN</option>
+    <option value="230000" class="jsx-1925758298">TACNA</option>
+    <option value="240000" class="jsx-1925758298">TUMBES</option>
+    <option value="250000" class="jsx-1925758298">UCAYALI</option>
+    </select>
+     
+    </div> 
+	<div class="form-group"> 
+        <label for="tipoDocumento_id" class="control-label">Tipo de Documento</label>
+        <input type="text" class="form-control" id="tipoDocumento_id" name="tipoDocumento" placeholder="DNI">
+    </div>                          
+    <div class="form-group"> 
+        <label for="numeroDocumento_id" class="control-label">Numero de Documento</label>
+        <input type="text" class="form-control" id="numeroDocumento_id" name="numeroDocumento" maxlength="8" placeholder="32523434">
+    </div> 
+    <div class="form-group"> 
         <label for="Nombre_id" class="control-label">Nombres</label>
         <input type="text" class="form-control" id="Nombre_id" name="nombres" placeholder="John Deer">
     </div>    
@@ -217,28 +257,61 @@
     </div>                    
                             
     <div class="form-group"> 
-        <label for="tipoDocumento_id" class="control-label">Tipo de Documento</label>
-        <input type="text" class="form-control" id="tipoDocumento_id" name="tipoDocumento" placeholder="DNI">
-    </div>    
+  <h2 class="text-center">¿Que Sintomas Tiene?</h2>
+        <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check1" name="Respuesta1" checked>
+        <label class="custom-control-label" for="check1" >Congestión nasal</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check2" name="Respuesta2">
+        <label class="custom-control-label" for="check2">Dificultad para respirar</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check3" name="Respuesta3" checked>
+        <label class="custom-control-label" for="check3">Dolor de garganta</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check4" name="Respuesta4" checked>
+        <label class="custom-control-label" for="check4">Fiebre de ±37.7°</label>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <!-- Default checked -->
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="check5" name="Respuesta5" checked>
+        <label class="custom-control-label" for="check5">Sintomatologia Gastrointestinal</label>
+      </div>
+    </li>
+  </ul>
+    </div>   
 
-    <div class="form-group"> 
-        <label for="numeroDocumento_id" class="control-label">Numero de Documento</label>
-        <input type="text" class="form-control" id="numeroDocumento_id" name="numeroDocumento" maxlength="8" placeholder="32523434">
-    </div>                                    
+                                       
                             
     
     
     <div class="form-group"> 
-        <label for="Correo_id" class="control-label">Correo</label>
-        <input type="text" class="form-control" id="Correo_id" name="correo" placeholder="####@#####.###">
+        <label for="Direccion_id" class="control-label">Direccion</label>
+        <input type="text" class="form-control" id="Direccion_id" name="direccion" placeholder="Direccion">
     </div>    
     <div class="form-group"> 
-        <label for="password_id" class="control-label">Contraseña</label>
-        <input type="text" class="form-control" id="password_id" name="password" placeholder="#####">
+        <input type="text" class="form-control" id="log_id" name="log">
+        <input type="text" class="form-control" id="lat_id" name="lat" >
     </div>     
     
     <div class="form-group"> 
-        <button type="submit" class="btn btn-primary">Registrarse!</button>
+        <button type="submit" class="btn btn-primary">Registrar Triaje!</button>
     </div>     
     
 </form>

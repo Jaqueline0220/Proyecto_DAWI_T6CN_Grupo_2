@@ -50,7 +50,7 @@
 		</div>
 		<ul class="list-unstyled components" style="height: 65vh;">
 			<li class="active">
-				<a id="a-btnHome" href="/Home/menu" class="link-layout">
+				<a id="btn-Home" href="/verIndex" class="link-layout">
 					<span class="v-icon" style="      margin-right: 30px;
 ">
 						<img src="img/iconos/layout/casa.png" style= "height:20px;width:20px">
@@ -105,7 +105,7 @@
 					<li>
 					
 						<c:if test="${requestScope.objUsuario.nombres != '' }">
-							<a href="/Acceso/Close" class="article">Close</a>
+							<a href="/logout" class="article">Close</a>
 						</c:if>
 						<c:if test="${requestScope.objUsuario.nombres == ''  }">
 							<a id="btn-login" href="/verLogin" class="article">Login</a>
@@ -148,7 +148,7 @@
 											
 										</li>
 										<li>
-											<a style="background-color:transparent !important" class="cart-icon cart-btn" onclik="" href="/Acceso/Close">
+											<a style="background-color:transparent !important" class="cart-icon cart-btn" onclik="" href="/logout">
 												<span class="hidden-mobile">
 													<svg
 														xmlns="http://www.w3.org/2000/svg" height="14pt" viewBox="0 0 512 512" width="14pt">

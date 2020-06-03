@@ -50,7 +50,7 @@
 		</div>
 		<ul class="list-unstyled components" style="height: 65vh;">
 			<li class="active">
-				<a id="a-btnHome" href="/Home/menu" class="link-layout">
+				<a id="btn-Home" href="/verIndex" class="link-layout">
 					<span class="v-icon" style="      margin-right: 30px;
 ">
 						<img src="img/iconos/layout/casa.png" style= "height:20px;width:20px">
