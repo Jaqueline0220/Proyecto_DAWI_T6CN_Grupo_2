@@ -14,6 +14,22 @@ public class EnlaceBean {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="idenlace")
 	private int idEnlace;
+	private String estilo;
+	private String icono;
+	public String getEstilo() {
+		return estilo;
+	}
+	public void setEstilo(String estilo) {
+		this.estilo = estilo;
+	}
+	public String getIcono() {
+		return icono;
+	}
+	public void setIcono(String icono) {
+		this.icono = icono;
+	}
+	
+	
 	public int getIdEnlace() {
 		return idEnlace;
 	}

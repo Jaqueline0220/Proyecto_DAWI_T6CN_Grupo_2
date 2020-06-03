@@ -23,13 +23,16 @@ public class LogInControlador {
 	@Autowired
 	private EnlaceService enlaceService;
 	
-	@RequestMapping("/verlogin")
+	@RequestMapping("/verIndex")
 	public String ver() {
-		return "login";
+		return "Index";
 	}
 
-
-	@RequestMapping(value="/login", method = RequestMethod.POST)
+	@RequestMapping("/verLogin")
+	public String verlogin() {
+		return "login";
+	}
+	@RequestMapping(value="/login", method = RequestMethod.POST )
 	public String regLogin(UsuarioBean bean, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception{	
 	boolean emailCorrecto;
 	boolean contraCorrecto;
@@ -67,6 +70,7 @@ public class LogInControlador {
     			  }else {
     				session=request.getSession();
     				session.setAttribute("objUsuario", aux);	
+    				System.out.println("aux "+ aux);
     				//se obtiene los menus del usuario logeado y se guarda en la memoria sesion
     				List<EnlaceBean> menus = enlaceService.listaEnlace(aux.getIdUsuario());
     				session.setAttribute("objMenus", menus);

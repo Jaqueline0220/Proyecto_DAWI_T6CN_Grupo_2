@@ -20,6 +20,7 @@ public class UsuarioMysqlRepositorio implements UsuarioRepositorio{
 			String sql = "call usp_login('"+bean.getCorreo()+"','"+bean.getPassword()+"')";
 			
 				List<UsuarioBean> users = jdbcTemplate.query(sql, new UsuarioMapper());
+				
 				return users.size() > 0 ? users.get(0) : null;
 	    
 	}
@@ -28,6 +29,20 @@ public class UsuarioMysqlRepositorio implements UsuarioRepositorio{
 		String sql = "call usp_loginISexiste('"+correo+"')";
 		List<UsuarioBean> users = jdbcTemplate.query(sql, new UsuarioMapper());
 		return users.size() > 0 ? users.get(0) : null;
+		
+	}
+	
+	@Override
+	public int insertarUsuario(UsuarioBean obj) throws Exception {
+		String sql = "call usp_insertaUsuario(?,?,?,?,?,?)";
+		return jdbcTemplate.update(sql,
+				new Object[]{ obj.getNombres(),
+						      obj.getApellidos(), 
+						      obj.getTipoDocumento(),
+						      obj.getNumeroDocumento(),
+						      obj.getCorreo(),
+						      obj.getPassword()
+						      });     
 		
 	}
 	class UsuarioMapper implements RowMapper<UsuarioBean> {

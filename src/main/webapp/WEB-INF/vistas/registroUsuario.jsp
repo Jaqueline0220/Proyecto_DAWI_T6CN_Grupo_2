@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/bootstrap.css" > 
   
  <link rel="stylesheet" href="css/style.css">  
- <link rel="stylesheet" href="css/admin.css" type="text/css">
+
  <style>
     .boxlogin {
         width: 400px;
@@ -103,11 +103,11 @@
 				</ul>
 				<ul class="list-unstyled CTAs">
 					<li>
-					
-						<c:if test="${requestScope.objUsuario.nombres != '' }">
+					${requestScope.objUsuario.idUsuario}
+						<c:if test="${requestScope.objUsuario.idUsuario !=null }">
 							<a href="/Acceso/Close" class="article">Close</a>
 						</c:if>
-						<c:if test="${requestScope.objUsuario.nombres == ''  }">
+						<c:if test="${requestScope.objUsuario.idUsuario ==null }">
 							<a id="btn-login" href="/verLogin" class="article">Login</a>
 							<a id="btn-Registrar" href="/verregistroUsuario" class="register">Registrarse</a>
 						</c:if>
@@ -127,12 +127,12 @@
 									</button>
 								</div>
 								<div class="titulo" style="float: right; padding-left: 2rem;">
-									Covid 19  
+									Covid 19
 								</div>
 							</div>
 							<div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right" >
-									<c:if test="${requestScope.objUsuario.nombres  != '' }">
+									<c:if test="${requestScope.objUsuario.idUsuario != null  }">
 										<li class="" style="margin-right:2rem;margin-left:2rem;">
 										<a style="text-transform:capitalize;" href="#" id="user">
                                                 <span style="text-transform:capitalize;margin-right:.5rem">
@@ -164,7 +164,7 @@
 											</a>
 										</li>
 									</c:if>
-									<c:if test="${requestScope.objUsuario.nombres == ''  }">
+									<c:if test="${requestScope.objUsuario.idUsuario == null  }">
 										<li>
 											<a style="background-color:transparent !important;text-align:center" class="cart-icon cart-btn" onclik="" href="/">
 												<span class="hidden-mobile">
@@ -185,72 +185,68 @@
 							</div>
 						</div>
 					</nav>
-					<div class="row " style="padding:1rem 2rem;justify-content: center!important;text-align: center;">
-					 <div class="col-md-12" style="margin:.5rem 0px;">
-					A nivel mundial : 6.484.939 casos detectados, 382.368 fallecidos,
-					 3.010.483 pacientes recuperados y 2902 casos activos, la letalidad es de 5.90%
-					 </div>
-					 </div>
-					<div class="row " style="padding:1rem 2rem;justify-content: center!important;">
-        <div class="col-md-3" style="margin:.5rem 0px;">
-            <div class="card h-50">
+				
+				 <!-- formulario -->
+				 <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well well-sm" style="background-color:white !important;border: 1px solid #fff;">
+                <form action="registroUsuario" method="post">
+                <input type="hidden" class="form-control" id="Nombre_id" name="idUsuario" value="1">
+<div class="form-group"> <!-- Full Name -->
+        <h2>Registro de usuario</h2>
+    </div>  
+   
+	 <div class="form-group"> 
 
-                <div class="card-body" style="background-color:#8faffb;padding:.5rem .5rem;text-align:center">
-                    <h5 class="card-title">Pruebas</h5>
-                    <h2 class="card-text">504.930</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3"  style="margin:.5rem 0px;">
-            <div class="card h-50">
+				<c:if test="${not empty MENSAJES }">
+               		<div class="alert alert-danger fade in" id="success-alert">
+				        <a href="#" class="close" data-dismiss="alert">&times;</a>
+				        <strong>${MENSAJES}</strong>
+				    </div>
+				    </c:if>
+				    <c:remove var="MENSAJES" scope = "request" />
+	</div> 
+    <div class="form-group"> 
+        <label for="Nombre_id" class="control-label">Nombres</label>
+        <input type="text" class="form-control" id="Nombre_id" name="nombres" placeholder="John Deer">
+    </div>    
 
-                <div class="card-body" style="background-color:#8faffb;padding:.5rem 1.5rem;text-align:center">
-                    <h5 class="card-title">trijae</h5>
-                    <h2 class="card-text">604.930</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3"  style="margin:.5rem 0px;">
-            <div class="card h-50">
+    <div class="form-group"> 
+        <label for="apellidos_id" class="control-label">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos_id" name="apellidos" placeholder="Sanchez Vera">
+    </div>                    
+                            
+    <div class="form-group"> 
+        <label for="tipoDocumento_id" class="control-label">Tipo de Documento</label>
+        <input type="text" class="form-control" id="tipoDocumento_id" name="tipoDocumento" placeholder="DNI">
+    </div>    
 
-                <div class="card-body" style="background-color:#8faffb;padding:.5rem 1.5rem;text-align:center">
-                    <h5 class="card-title">Pruebas</h5>
-                    <h2 class="card-text">504.930</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3"  style="margin:.5rem 0px;">
-            <div class="card h-50">
-
-                <div class="card-body" style="background-color:#8faffb;padding:.5rem 1.5rem;text-align:center">
-                    <h5 class="card-title">trijae</h5>
-                    <h2 class="card-text">604.930</h2>
-                </div>
+    <div class="form-group"> 
+        <label for="numeroDocumento_id" class="control-label">Numero de Documento</label>
+        <input type="text" class="form-control" id="numeroDocumento_id" name="numeroDocumento" maxlength="8" placeholder="32523434">
+    </div>                                    
+                            
+    
+    
+    <div class="form-group"> 
+        <label for="Correo_id" class="control-label">Correo</label>
+        <input type="text" class="form-control" id="Correo_id" name="correo" placeholder="####@#####.###">
+    </div>    
+    <div class="form-group"> 
+        <label for="password_id" class="control-label">Contraseña</label>
+        <input type="text" class="form-control" id="password_id" name="password" placeholder="#####">
+    </div>     
+    
+    <div class="form-group"> 
+        <button type="submit" class="btn btn-primary">Registrarse!</button>
+    </div>     
+    
+</form>
             </div>
         </div>
     </div>
-    <div class="row" style="padding:1rem 2rem;justify-content: center!important;">
-        <div class="col-md-3"  style="margin:.5rem 0px;">
-            <div class="card h-50">
-
-                <div class="card-body" style="background-color:#8faffb;padding:.5rem 1.5rem;text-align:center">
-                    <h5 class="card-title">Pruebas</h5>
-                    <h2 class="card-text">504.930</h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card h-50">
-
-                <div class="card-body" style="background-color:#8faffb;padding:.5rem 1.5rem;text-align:center">
-                    <h5 class="card-title">trijae</h5>
-                    <h2 class="card-text">604.930</h2>
-                </div>
-            </div>
-        </div>
-        
-
-    </div>
+				  <!-- fin formulario -->
+				
 				</div>
 			
 				
@@ -266,8 +262,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
-    <script src="js/scriptUsuario.js"></script>
+<script src="js/scriptUsuario.js"></script>
     
 
 

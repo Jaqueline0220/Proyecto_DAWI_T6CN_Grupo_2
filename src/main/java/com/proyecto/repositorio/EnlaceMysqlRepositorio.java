@@ -20,7 +20,7 @@ public class EnlaceMysqlRepositorio implements EnlaceRepositorio {
 		public List<EnlaceBean> listaEnlace(int IdUsuario) {
 			
 	       List<EnlaceBean> enlace = jdbcTemplate.query(
-				    "SELECT DISTINCT	r.idEnlace,	r.descripcion,	r.ruta " + 
+				    "SELECT DISTINCT	r.idEnlace,	r.descripcion,	r.ruta, r.icono, r.estilo " + 
 				    "	FROM ENLACE r, ROL_ENLACE p, ROL t,USUARIO_ROL q" + 
 				    "    WHERE r.idEnlace = p.idEnlace AND	p.idRol = t.idRol AND" + 
 				    "	 t.idRol = q.idRol  AND	q.idUsuario =?  ORDER BY 2",
@@ -31,6 +31,8 @@ public class EnlaceMysqlRepositorio implements EnlaceRepositorio {
 				        empresa.setIdEnlace( result.getInt("idenlace") );
 				        empresa.setDescripcion( result.getString("descripcion") );
 				        empresa.setRuta( result.getString("ruta") );
+				        empresa.setIcono( result.getString("icono") );
+				        empresa.setEstilo( result.getString("estilo") );
 				        return empresa;
 				      
 				    }

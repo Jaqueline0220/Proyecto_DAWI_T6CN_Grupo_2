@@ -33,6 +33,12 @@ public UsuarioBean ValidarUsuarioExiste(String correo) throws Exception {
 	return service.ValidarUsuarioExiste(correo);
 }
 
+@Override
+public int insertarUsuario(UsuarioBean obj) throws Exception {
+	// TODO Auto-generated method stub
+	return service.insertarUsuario(obj);
+}
+
 
 
 
