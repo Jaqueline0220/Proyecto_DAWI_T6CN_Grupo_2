@@ -262,7 +262,7 @@
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="check1" name="Respuesta1" checked>
+        <input type="checkbox" class="custom-control-input" id="check1" name="Respuesta1" >
         <label class="custom-control-label" for="check1" >Congestión nasal</label>
       </div>
     </li>
@@ -276,21 +276,21 @@
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="check3" name="Respuesta3" checked>
+        <input type="checkbox" class="custom-control-input" id="check3" name="Respuesta3" >
         <label class="custom-control-label" for="check3">Dolor de garganta</label>
       </div>
     </li>
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="check4" name="Respuesta4" checked>
+        <input type="checkbox" class="custom-control-input" id="check4" name="Respuesta4" >
         <label class="custom-control-label" for="check4">Fiebre de ±37.7°</label>
       </div>
     </li>
     <li class="list-group-item">
       <!-- Default checked -->
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="check5" name="Respuesta5" checked>
+        <input type="checkbox" class="custom-control-input" id="check5" name="Respuesta5" >
         <label class="custom-control-label" for="check5">Sintomatologia Gastrointestinal</label>
       </div>
     </li>

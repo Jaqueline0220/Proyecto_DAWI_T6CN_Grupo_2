@@ -64,7 +64,7 @@
 				</li>
 				<c:forEach var="x" items="${sessionScope.objMenus}">
 					<li class="">
-						<a class="link-layout"  href="${x.ruta}">
+						<a id="btn${x.descripcion}" class="link-layout"  href="${x.ruta}">
 							<span class="v-icon" style="      margin-right: 30px;
 ">
 								<img src="img/iconos/layout/${x.icono}.png" style= "height:20px;width:20px">

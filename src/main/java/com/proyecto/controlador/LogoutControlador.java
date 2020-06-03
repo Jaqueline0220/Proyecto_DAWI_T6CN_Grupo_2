@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LogoutControlador {
-
+	@RequestMapping("/logout")
+	public String ver() {
+		return "login";
+	}
 	@RequestMapping(value="/logout", method = RequestMethod.POST )
 	public String regLogin(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception{	
 		//Se obtiene la session
