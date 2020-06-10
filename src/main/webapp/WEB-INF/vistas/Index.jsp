@@ -15,9 +15,13 @@
     .boxlogin {
         width: 400px;
         margin: 100px auto;
+        
+    }
+    #sidebar ul.components {
+         border-bottom: 1px solid #fff; 
     }
 </style> 
-<title>Sistemas de administracion</title>
+<title>Sistemas de administración</title>
 </head>   
 <body style="background-color: white !important">  
 
@@ -51,35 +55,25 @@
 		<ul class="list-unstyled components" style="height: 65vh;">
 			<li class="active">
 				<a id="btn-Home" href="/verIndex" class="link-layout">
-					<span class="v-icon" style="      margin-right: 30px;
-">
+					<span class="v-icon" style="      margin-right: 30px;">
 						<img src="img/iconos/layout/casa.png" style= "height:20px;width:20px">
 						</span> Home
-
-
-                                
-					
+					</a>
+				</li>
+					<li class="active">
+				<a id="a-btnHome" href="/" class="link-layout">
+					<span class="v-icon" style="      margin-right: 30px;">
+						<img src="img/iconos/layout/doctor.png" style= "height:20px;width:20px">
+						</span> Triaje
 					
 					</a>
 				</li>
-				<c:forEach var="x" items="${sessionScope.objMenus}">
-					<li class="">
-						<a id="btn${x.descripcion}" class="link-layout"  href="${x.ruta}">
-							<span class="v-icon" style="      margin-right: 30px;
-">
-								<img src="img/iconos/layout/${x.icono}.png" style= "height:20px;width:20px">
-								</span>${x.descripcion}
-						
-							
-							</a>
-						</li>
-					</c:forEach>
 					<li class="active">
-				<a id="a-btnHome" href="/Home/menu" class="link-layout">
+				<a id="a-btnHome" href="/" class="link-layout">
 					<span class="v-icon" style="      margin-right: 30px;
 ">
 						<img src="img/iconos/layout/ubicacion.png" style= "height:20px;width:20px">
-						</span> Mapep de Riesgo
+						</span> Mapeo de Riesgo
 
 
                                 
@@ -88,9 +82,8 @@
 					</a>
 				</li>
 				<li class="active">
-				<a id="a-btnHome" href="/Home/menu" class="link-layout">
-					<span class="v-icon" style="      margin-right: 30px;
-">
+				<a id="a-btnHome" href="/" class="link-layout">
+					<span class="v-icon" style="      margin-right: 30px;">
 						<img src="img/iconos/layout/informacion.png" style= "height:20px;width:20px">
 						</span> Acerca de
                        
@@ -101,17 +94,7 @@
 					</a>
 				</li>
 				</ul>
-				<ul class="list-unstyled CTAs">
-					<li>
-					
-						<c:if test="${requestScope.objUsuario.nombres != '' }">
-							<a href="/logout" class="article">Close</a>
-						</c:if>
-						<c:if test="${requestScope.objUsuario.nombres == ''  }">
-							<a id="btn-login" href="/verLogin" class="article">Login</a>
-							<a id="btn-Registrar" href="/verregistroUsuario" class="register">Registrarse</a>
-						</c:if>
-					</ul>
+				
 				</nav>
 				<!-- Page Content Holder -->
 				<div id="content" class="container">
@@ -132,55 +115,8 @@
 							</div>
 							<div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right" >
-									<c:if test="${requestScope.objUsuario.nombres  != '' }">
-										<li class="" style="margin-right:2rem;margin-left:2rem;">
-										<a style="text-transform:capitalize;" href="#" id="user">
-                                                <span style="text-transform:capitalize;margin-right:.5rem">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 28.055 28.055" style="enable-background:new 0 0 14 14;" xml:space="preserve">
-                                                    <g>
-                                                    <path fill="#d9a4fc" d="M14.249,1.027c-0.036,0-0.07,0.009-0.104,0.009c-0.106-0.003-0.211-0.01-0.318-0.009H14.249z M14.085,17.301   c-0.019,0-0.036-0.003-0.055-0.003c-0.014,0-0.027,0.003-0.041,0.003H14.085z M8.137,11.313c0.015-0.003,0.026-0.019,0.042-0.023   c0.941,3.405,3.377,5.953,5.852,6.007c2.254-0.104,5.022-2.606,5.944-5.994c0.424,0.026,0.848-0.474,0.967-1.17   c0.123-0.726-0.135-1.374-0.572-1.449c-0.028-0.005-0.057,0.013-0.084,0.014c-0.127-5.603-2.789-7.579-6.141-7.664   C10.688,1.051,7.593,3.453,7.789,8.7c-0.033,0-0.064-0.021-0.096-0.015C7.254,8.76,6.998,9.408,7.121,10.134   C7.241,10.858,7.697,11.386,8.137,11.313z M18.688,18.27l-3.141,6.146l-0.496-3.997l0.775-0.636h-1.878h-1.717l0.776,0.636   l-0.497,3.997L9.373,18.27C3.917,19.005,0,21.343,0,27.027h28.055C28.057,21.342,24.141,19.006,18.688,18.27z"></path>
-
-																</g>
-															</svg>
-                                                </span> ${sessionScope.objUsuario.nombres} 
-
-                                            </a>
-											
-										</li>
-										<li>
-											<a style="background-color:transparent !important" class="cart-icon cart-btn" onclik="" href="/logout">
-												<span class="hidden-mobile">
-													<svg
-														xmlns="http://www.w3.org/2000/svg" height="14pt" viewBox="0 0 512 512" width="14pt">
-														<path d="m416 512h-320c-53.023438 0-96-42.976562-96-96v-320c0-53.023438 42.976562-96 96-96h320c53.023438 0 96 42.976562 96 96v320c0 53.023438-42.976562 96-96 96zm0 0" fill="#fff"></path>
-														<path d="m288 202.671875c-5.886719 0-10.671875-4.769531-10.671875-10.671875v-32c0-5.886719-4.785156-10.671875-10.671875-10.671875h-114.65625c-5.886719 0-10.671875-4.769531-10.671875-10.671875s4.769531-10.65625 10.671875-10.65625h114.671875c17.648437 0 32 14.351562 32 32v32c0 5.886719-4.769531 10.671875-10.671875 10.671875zm0 0" fill="#d9a4fc"></path>
-														<path d="m266.671875 352h-37.328125c-5.886719 0-10.671875-4.769531-10.671875-10.671875 0-5.886719 4.769531-10.671875 10.671875-10.671875h37.328125c5.886719 0 10.671875-4.785156 10.671875-10.671875v-42.671875c0-5.886719 4.769531-10.671875 10.671875-10.671875 5.886719 0 10.671875 4.765625 10.671875 10.671875v42.6875c-.015625 17.648438-14.367188 32-32.015625 32zm0 0" fill="#d9a4fc"></path>
-														<g fill="#be63f9">
-															<path d="m220.128906 150.367188-64.175781-21.375c-2.144531-.671876-4.320313-.992188-6.625-.992188-11.761719 0-21.328125 9.566406-21.328125 21.328125v192c0 9.085937 5.792969 17.230469 14.527344 20.289063l64.242187 21.40625c2.191407.671874 4.335938.976562 6.558594.976562 11.761719 0 21.328125-9.566406 21.328125-21.328125v-192c.015625-9.121094-5.792969-17.265625-14.527344-20.304687zm0 0"></path>
-															<path d="m326.574219 287.183594c-3.980469-1.648438-6.574219-5.535156-6.574219-9.855469v-32h-42.671875c-5.886719 0-10.671875-4.785156-10.671875-10.671875s4.785156-10.65625 10.671875-10.65625h42.671875v-32c0-4.320312 2.59375-8.207031 6.574219-9.855469 3.984375-1.648437 8.578125-.738281 11.632812 2.320313l42.671875 42.671875c4.160156 4.160156 4.160156 10.910156 0 15.085937l-42.671875 42.671875c-3.054687 3.027344-7.632812 3.9375-11.632812 2.289063zm0 0"></path>
-														</g>
-													</svg>
-												</span>
-											</a>
-										</li>
-									</c:if>
-									<c:if test="${requestScope.objUsuario.nombres == ''  }">
-										<li>
-											<a style="background-color:transparent !important;text-align:center" class="cart-icon cart-btn" onclik="" href="/">
-												<span class="hidden-mobile">
-													<svg
-														xmlns="http://www.w3.org/2000/svg"
-														xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="14pt" height="14pt">
-														<rect x="252.902" y="48.099" style="fill:#415E72;" width="138.747" height="412.545"></rect>
-														<polygon style="fill:#CFDCE5;" points="252.39,485.439 397.281,485.439 419.482,485.439 419.482,463.237 419.482,48.762   419.482,26.561 397.281,26.561 252.39,26.561 252.39,70.963 375.08,70.963 375.08,441.037 252.39,441.037 "></polygon>
-														<polygon style="fill:#BAC6CC;" points="275.376,512 92.519,475.429 92.519,48.762 275.376,0 "></polygon>
-														<polygon style="fill:#415E72;" points="240.711,286.194 193.573,282.867 193.573,267.009 240.711,263.681 "></polygon>
-													</svg>
-												</span>
-												<span style="display:none"></span>
-											</a>
-										</li>
-									</c:if>
+									
+									
 								</ul>
 							</div>
 						</div>
@@ -243,7 +179,7 @@
             <div class="card h-50">
 
                 <div class="card-body" style="background-color:#8faffb;padding:.5rem 1.5rem;text-align:center">
-                    <h5 class="card-title">trijae</h5>
+                    <h5 class="card-title">trijaé</h5>
                     <h2 class="card-text">604.930</h2>
                 </div>
             </div>
